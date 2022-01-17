@@ -1,0 +1,24 @@
+---
+- name: Enabling SNMP Community in Cisco Router 1
+  hosts: R1
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: Configure SNMP community named CISCO_Students and CISCO_Teacher Router 1
+    ios_config:
+      lines:
+      - snmp-server community CISCO_Students RO
+      - snmp-server community CISCO_Teacher RW
+
+- name: Enabling SNMP Community in Cisco Router 2
+  hosts: R2
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: Configure SNMP community named CISCO_Students and CISCO_Teacher Router 2
+    ios_config:
+      lines:
+      - snmp-server community CISCO_Students RO
+      - snmp-server community CISCO_Teacher RW
